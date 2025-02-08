@@ -1,0 +1,6 @@
+{
+    "env":{
+        "MONGO_ATLAS_PW": "aforapple",
+        "JWT_KEY":"The_secret_key"
+    }
+}
