@@ -8,10 +8,6 @@
   },
   "author": "amalsasidharan",
   "license": "ISC",
-  "engine": {
-    "node": "18.19.1",
-    "npm": "10.2.4"
-  },
   "dependencies": {
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.3",
