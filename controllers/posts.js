@@ -72,8 +72,8 @@ exports.getImageForProfile = (req, res, next) => {
     Post.find({ creator: req.UserData.userId }) 
       .then((posts) => {
         if (!posts.length) {
-          return res.status(404).json({
-            msg: 'No posts found for the creator',
+          return res.json({
+            // msg: 'No posts found for the creator',
             posts:[]
           });
         }
