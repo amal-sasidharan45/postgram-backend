@@ -5,7 +5,12 @@ const path=require('path');
 const userRoutes=require('./routes/user')
 const PostRoutes=require('./routes/post');
 const bodyParser = require('body-parser');
-mongoose.connect("mongodb+srv://amalsasidharan387:" + process.env.MONGO_ATLAS_PW + "@cluster0.5caef.mongodb.net/postgram?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect("mongodb+srv://amalsasidharan387:" +  process.env.MONGO_ATLAS_PW + "@cluster0.5caef.mongodb.net/postgram?retryWrites=true&w=majority&appName=Cluster0",
+    {
+        serverSelectionTimeoutMS: 5000, 
+        socketTimeoutMS: 45000, 
+      }
+)
 .then(()=>console.log('connetced to database')).catch((err)=>console.log('Database connection error',err));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
@@ -19,8 +24,12 @@ app.use((req,res,next)=>{
     )
     next()
 })
+app.get('/health', (req, res) => {
+    res.status(200).send('Backend is running');
+  });
+  
 app.use('/api/Users',userRoutes)
 app.use('/api/Posts',PostRoutes)
-app.use(bodyParser.json());
+
 module.exports=app
 
