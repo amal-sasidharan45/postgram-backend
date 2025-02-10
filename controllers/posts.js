@@ -89,9 +89,17 @@ exports.getImageForProfile = (req, res, next) => {
         });
       });
   };
-
-
+ 
+  exports.getHealth = (req, res, next) => {
+    res.status(200).json({
+      status: 'Backend is running',
+      timestamp: new Date().toISOString(),
+    });
+  };
+  
   exports.UpdatePost=(req,res,next)=>{
+    console.log(req.body.likes,'update Likes');
+    
     let imagePath=req.body.imagePath;
 
     if(req.file){

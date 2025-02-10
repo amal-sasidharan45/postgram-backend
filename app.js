@@ -24,9 +24,7 @@ app.use((req,res,next)=>{
     )
     next()
 })
-app.get('/health', (req, res) => {
-    res.status(200).send('Backend is running');
-  });
+
   
 app.use('/api/Users',userRoutes)
 app.use('/api/Posts',PostRoutes)
