@@ -43,7 +43,7 @@ exports.Signup=(req,res,next)=>{
 
             
             res.status(201).json({
-                message:'Sign Up Successfull',
+                message:'Sign-Up Successful',
                 user:result
             })
 
@@ -99,7 +99,7 @@ exports.Login=async (req,res,next)=>{
         )
         console.log(USER);
         res.status(200).json({
-          message:'Log In Successful',
+          message:'Login Successful',
             token:token,
             expiresIn:3600,
             userId:USER._id
